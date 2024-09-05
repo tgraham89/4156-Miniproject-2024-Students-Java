@@ -46,15 +46,23 @@ public class Course implements Serializable {
   }
 
   public String getCourseLocation() {
-    return this.instructorName;
+    return this.courseLocation;
   }
 
   public String getInstructorName() {
-    return this.courseLocation;
+    return this.instructorName;
   }
 
   public String getCourseTimeSlot() {
     return this.courseTimeSlot;
+  }
+
+  public int getCourseCapacity() {
+    return this.enrollmentCapacity;
+  }
+
+  public int getEnrolledStudentCount() {
+    return this.enrolledStudentCount;
   }
 
   public String toString() {
