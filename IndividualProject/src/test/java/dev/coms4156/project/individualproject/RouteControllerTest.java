@@ -41,7 +41,6 @@ public class RouteControllerTest {
     myFileDatabase = IndividualProjectApplication.myFileDatabase;
     MockitoAnnotations.openMocks(this);
     mockMvc = MockMvcBuilders.standaloneSetup(routeController).build();
-    // System.out.println(myFileDatabase);
   }
 
   @Test

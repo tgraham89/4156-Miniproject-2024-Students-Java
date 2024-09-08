@@ -27,14 +27,19 @@ Fixed to return HttpStatus.OK instead.
 return HttpStatus.OK instead.
 4. addMajorToDept method in Department.java was calling the incorrectly named addPersonToMajor. 
 Updated to call addMajorToDept after bug fix in Department.java
-4. dropPersonFromMajor method in Department.java was calling the incorrectly named addPersonToMajor. 
+5. dropPersonFromMajor method in Department.java was calling the incorrectly named addPersonToMajor. 
 Updated to call dropMajorFromDept after bug fix in Department.java
-5. Static Analyzer name: LooseCoupling. In every instance where the courseMapping variable is
+6. Static Analyzer name: LooseCoupling. In every instance where the courseMapping variable is
 declared and used, it directly used a HashMap instead of the Map interface. Updated to use a
 Map instead per the fix to getCourseSelection in Department.java.
-6. Static Analyzer name: LooseCoupling. In every instance where the departmentMapping variable is
+7. Static Analyzer name: LooseCoupling. In every instance where the departmentMapping variable is
 declared and used, it directly used a HashMap instead of the Map interface. Updated to use a
 Map instead.
+8. Static Analyzer name: UnnecessaryAnnotationValueElement. In every method with only 1 value,
+the 'value =' annotation is unnecessary. Updated to remove the 'value =' annotations in all
+of the applicable methods. 
+9. Static Analyser name: UseLocaleWithCaseConversions. toUpperCase method in retrieveDepartment
+method was not using a Locale. Updated to use English locale.
 
 
 Bugs fixed in Department.java
@@ -56,6 +61,8 @@ interface. Fixed to be a Map instead.
 Bugs fixed in IndividualProjectApplication.java
 1. Static Analyzer name: LooseCoupling. courses variable was a HashMap rather than using the Map
 interface. Fixed to be a Map instead.
+2. Static Analyzer name: LiteralsFirstInComparisons. Switched arg.equals("setup") to 
+"setup".equals(arg) since literals should come first in comparisons. 
 
 Bugs fixed in MyFileDatabase.java
 1. Static Analyzer name: LooseCoupling. All functions in this class  were using a HashMap rather 

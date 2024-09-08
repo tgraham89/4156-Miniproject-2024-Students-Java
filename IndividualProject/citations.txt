@@ -6,4 +6,12 @@ https://stackoverflow.com/questions/14396529/warning-avoid-using-implementation-
 --
 How to return an empty map for ReturnEmptyCollectionRatherThanNull error:
 https://stackoverflow.com/questions/636126/best-way-to-create-an-empty-map-in-java
-
+-- 
+Understanding LiteralsFirstInComparisons error:
+https://stackoverflow.com/questions/3105386/what-is-the-right-position-of-literals-in-string-comparison
+--
+Understanding UnnecessaryAnnotationValueElement error:
+https://stackoverflow.com/questions/76034065/avoid-the-use-of-value-in-annotations-when-its-the-only-element
+--
+Understanding and fixing UseLocaleWithCaseConversions error:
+https://stackoverflow.com/questions/11063102/using-locales-with-javas-tolowercase-and-touppercase
