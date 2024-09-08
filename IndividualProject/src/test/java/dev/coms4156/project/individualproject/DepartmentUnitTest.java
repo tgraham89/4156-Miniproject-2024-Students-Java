@@ -12,7 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 
 /**
- * Unit tests for the Department class. These tests verify the behavior of the Department class.
+ * Unit tests for the Department class.
  */
 @SpringBootTest
 @ContextConfiguration

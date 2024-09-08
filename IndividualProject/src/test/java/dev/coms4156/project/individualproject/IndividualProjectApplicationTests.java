@@ -8,6 +8,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+/**
+ * Tests for the IndividualProjectApplication class.
+ */
 @SpringBootTest
 class IndividualProjectApplicationTests {
 
