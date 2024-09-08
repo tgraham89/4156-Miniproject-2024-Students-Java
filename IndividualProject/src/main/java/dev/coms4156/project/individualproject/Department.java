@@ -19,9 +19,9 @@ public class Department implements Serializable {
    * @param departmentChair The name of the department chair.
    * @param numberOfMajors The number of majors in the department.
    */
-  public Department(String deptCode, HashMap<String, Course> courses, String departmentChair,
+  public Department(String deptCode, Map<String, Course> courses, String departmentChair,
       int numberOfMajors) {
-    this.courses = courses;
+    this.courses = new HashMap<>(courses);
     this.departmentChair = departmentChair;
     this.numberOfMajors = numberOfMajors;
     this.deptCode = deptCode;
@@ -50,7 +50,7 @@ public class Department implements Serializable {
    *
    * @return A HashMap containing courses offered by the department.
    */
-  public HashMap<String, Course> getCourseSelection() {
+  public Map<String, Course> getCourseSelection() {
     return this.courses;
   }
 
