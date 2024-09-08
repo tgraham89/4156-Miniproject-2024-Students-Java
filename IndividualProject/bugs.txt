@@ -45,3 +45,7 @@ be called dropMajorFromDept
 implementation instead of the Map interface. Updated the Department constructor use the Map interface.
 5. Static Analyzer name: LooseCoupling. getCourseSelection method was directly returning a HashMap
 rather than using an interface. Fixed to return a Map instead.
+6. Static Analyzer name: MissingOverride. toString method was missing override annotation. 
+Fixed to add @Override annotation.
+7. Static Analyzer name: LooseCoupling. courses variable was a HashMap rather than using the Map
+interface. Fixed to be a Map instead.
