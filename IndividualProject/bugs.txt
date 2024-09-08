@@ -32,6 +32,9 @@ Updated to call dropMajorFromDept after bug fix in Department.java
 5. Static Analyzer name: LooseCoupling. In every instance where the courseMapping variable is
 declared and used, it directly used a HashMap instead of the Map interface. Updated to use a
 Map instead per the fix to getCourseSelection in Department.java.
+6. Static Analyzer name: LooseCoupling. In every instance where the departmentMapping variable is
+declared and used, it directly used a HashMap instead of the Map interface. Updated to use a
+Map instead.
 
 
 Bugs fixed in Department.java
@@ -49,3 +52,11 @@ rather than using an interface. Fixed to return a Map instead.
 Fixed to add @Override annotation.
 7. Static Analyzer name: LooseCoupling. courses variable was a HashMap rather than using the Map
 interface. Fixed to be a Map instead.
+
+Bugs fixed in IndividualProjectApplication.java
+1. Static Analyzer name: LooseCoupling. courses variable was a HashMap rather than using the Map
+interface. Fixed to be a Map instead.
+
+Bugs fixed in MyFileDatabase.java
+1. Static Analyzer name: LooseCoupling. All functions in this class  were using a HashMap rather 
+than using the Map interface. Fixed to be a Map instead.

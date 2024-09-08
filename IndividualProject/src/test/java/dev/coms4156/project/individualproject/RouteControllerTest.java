@@ -6,7 +6,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -58,7 +58,7 @@ public class RouteControllerTest {
 
   @Test
   void retrieveDepartmentFoundTest() throws Exception {
-    HashMap<String, Department> mapping = myFileDatabase.getDepartmentMapping();
+    Map<String, Department> mapping = myFileDatabase.getDepartmentMapping();
     String coms_mapping = mapping.get("COMS").toString();
 
     mockMvc.perform(get("/retrieveDept").param("deptCode", "COMS")).andExpect(status().isOk())
