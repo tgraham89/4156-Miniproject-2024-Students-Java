@@ -40,7 +40,7 @@ the 'value =' annotation is unnecessary. Updated to remove the 'value =' annotat
 of the applicable methods. 
 9. Static Analyser name: UseLocaleWithCaseConversions. toUpperCase method in retrieveDepartment
 method was not using a Locale. Updated to use English locale.
-10. Static Analyser name: requestedCourse in findCourseTime method was unused. Fixed to return
+10. Static Analyser name: UnusedLocalVariable. requestedCourse in findCourseTime method was unused. Fixed to return
 the course time slot to the caller as expected. 
 
 
