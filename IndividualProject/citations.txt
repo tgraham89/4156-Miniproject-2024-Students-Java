@@ -1,4 +1,10 @@
 -
+Testing RouteController:
+--
+General resource I used:
+https://docs.spring.io/spring-framework/reference/testing/spring-mvc-test-framework.html
+
+-
 PMD Errors:
 --
 To understand "Avoid using implementation types like 'HashMap'; use the interface instead" error:

@@ -23,8 +23,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 @AutoConfigureMockMvc
 public class RouteControllerTest {
 
-  private IndividualProjectApplication application;
-
   @Autowired
   private MockMvc mockMvc;
 
@@ -36,7 +34,7 @@ public class RouteControllerTest {
 
   @BeforeEach
   void setUp() {
-    application = new IndividualProjectApplication();
+    IndividualProjectApplication application = new IndividualProjectApplication();
     application.resetDataFile();
     myFileDatabase = IndividualProjectApplication.myFileDatabase;
     MockitoAnnotations.openMocks(this);
@@ -58,10 +56,10 @@ public class RouteControllerTest {
   @Test
   void retrieveDepartmentFoundTest() throws Exception {
     Map<String, Department> mapping = myFileDatabase.getDepartmentMapping();
-    String coms_mapping = mapping.get("COMS").toString();
+    String comsMapping = mapping.get("COMS").toString();
 
     mockMvc.perform(get("/retrieveDept").param("deptCode", "COMS")).andExpect(status().isOk())
-        .andExpect(content().string(coms_mapping));
+        .andExpect(content().string(comsMapping));
   }
 
   @Test
