@@ -60,3 +60,5 @@ interface. Fixed to be a Map instead.
 Bugs fixed in MyFileDatabase.java
 1. Static Analyzer name: LooseCoupling. All functions in this class  were using a HashMap rather 
 than using the Map interface. Fixed to be a Map instead.
+2. Static Analyzer name: ReturnEmptyCollectionRatherThanNull. The deSerializeObjectFromFile method
+was returning null in case of an error. Fixed to return an empty Map instead. 

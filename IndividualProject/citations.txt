@@ -1,0 +1,9 @@
+-
+PMD Errors:
+--
+To understand "Avoid using implementation types like 'HashMap'; use the interface instead" error:
+https://stackoverflow.com/questions/14396529/warning-avoid-using-implementation-types-like-hashmap-use-the-interface-inste
+--
+How to return an empty map for ReturnEmptyCollectionRatherThanNull error:
+https://stackoverflow.com/questions/636126/best-way-to-create-an-empty-map-in-java
+
