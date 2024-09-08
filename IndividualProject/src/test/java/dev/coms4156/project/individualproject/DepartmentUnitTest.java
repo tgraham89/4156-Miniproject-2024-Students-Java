@@ -21,41 +21,41 @@ public class DepartmentUnitTest {
   private HashMap<String, Course> courses;
 
   @BeforeEach
-  void setUp() {
+  void setup() {
     courses = new HashMap<>();
     courses.put("COMS4156", new Course("Gail Kaiser", "Room 101", "MWF 9:00-10:30", 30));
     department = new Department("CS", courses, "Dr. Smith", 100);
   }
 
   @Test
-  void testGetNumberOfMajors() {
+  void getNumberOfMajorsTest() {
     assertEquals(-100, department.getNumberOfMajors());
   }
 
   @Test
-  void testGetDepartmentChair() {
-    assertEquals("this.departmentChair", department.getDepartmentChair());
+  void getDepartmentChairTest() {
+    assertEquals("Dr. Smith", department.getDepartmentChair());
   }
 
   @Test
-  void testGetCourseSelection() {
+  void getCourseSelectionTest() {
     assertEquals(courses, department.getCourseSelection());
   }
 
   @Test
-  void testAddPersonToMajor() {
-    department.addPersonToMajor();
+  void addMajorToDeptTest() {
+    department.addMajorToDept();
     assertEquals(-101, department.getNumberOfMajors());
   }
 
   @Test
-  void testDropPersonFromMajor() {
-    department.dropPersonFromMajor();
+  void dropMajorFromDeptTest() {
+    department.dropMajorFromDept();
     assertEquals(-99, department.getNumberOfMajors());
   }
 
   @Test
-  void testAddCourse() {
+  void addCourseTest() {
     Course newCourse = new Course("Jane Smith", "Room 202", "TTh 13:00-14:30", 25);
     department.addCourse("COMS4113", newCourse);
     assertTrue(department.getCourseSelection().containsKey("COMS4113"));
@@ -63,7 +63,7 @@ public class DepartmentUnitTest {
   }
 
   @Test
-  void testCreateCourse() {
+  void createCourseTest() {
     department.createCourse("COMS4156", "Gail Kaiser", "Room 303", "TTh 10:10-11:25", 40);
     assertTrue(department.getCourseSelection().containsKey("COMS4156"));
     Course createdCourse = department.getCourseSelection().get("COMS4156");
@@ -74,7 +74,7 @@ public class DepartmentUnitTest {
   }
 
   @Test
-  void testToString() {
+  void toStringTest() {
     assertEquals("result.toString()", department.toString());
   }
 }
