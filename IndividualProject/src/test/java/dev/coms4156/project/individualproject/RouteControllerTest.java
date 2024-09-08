@@ -143,6 +143,12 @@ public class RouteControllerTest {
   }
 
   @Test
+  void findCourseTimeTest() throws Exception {
+    mockMvc.perform(get("/findCourseTime").param("deptCode", "COMS").param("courseCode", "4156"))
+        .andExpect(status().isOk()).andExpect(content().string("The course meets at: 10:10-11:25"));
+  }
+
+  @Test
   void changeCourseTimeTest() throws Exception {
     mockMvc
         .perform(patch("/changeCourseTime").param("deptCode", "COMS").param("courseCode", "4156")
