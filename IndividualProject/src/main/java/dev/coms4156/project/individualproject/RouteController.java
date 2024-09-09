@@ -293,7 +293,7 @@ public class RouteController {
   }
 
   /**
-   * Attempts to add a student to the specified department.
+   * Attempts to add a student (i.e. a major) to the specified department.
    *
    * @param deptCode A {@code String} representing the department.
    *
@@ -319,7 +319,7 @@ public class RouteController {
   }
 
   /**
-   * Attempts to remove a student from the specified department.
+   * Attempts to remove a student (i.e. a major) from the specified department.
    *
    * @param deptCode A {@code String} representing the department.
    *

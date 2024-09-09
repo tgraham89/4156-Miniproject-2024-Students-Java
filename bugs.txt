@@ -60,6 +60,8 @@ rather than using an interface. Fixed to return a Map instead.
 Fixed to add @Override annotation.
 7. Static Analyzer name: LooseCoupling. courses variable was a HashMap rather than using the Map
 interface. Fixed to be a Map instead.
+8. dropMajorFromDept was not checking whether the number of majors was greater than 0 prior to 
+decrementing. Fixed to check. 
 
 Bugs fixed in IndividualProjectApplication.java
 1. Static Analyzer name: LooseCoupling. courses variable was a HashMap rather than using the Map
