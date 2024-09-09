@@ -35,7 +35,7 @@ public class RouteControllerTest {
   private RouteController routeController;
 
   @BeforeEach
-  void setUp() {
+  void setup() {
     IndividualProjectApplication application = new IndividualProjectApplication();
     application.resetDataFile();
     myFileDatabase = IndividualProjectApplication.myFileDatabase;
@@ -54,6 +54,13 @@ public class RouteControllerTest {
     mockMvc.perform(get("/retrieveDept").param("deptCode", "BLAH")).andExpect(status().isNotFound())
         .andExpect(content().string("Department Not Found"));
   }
+
+  // @Test
+  // void retrieveDepartmentExceptionTest() throws Exception {
+  // mockMvc.perform(get("/retrieveDept").param("deptCode", "INVALID"))
+  // .andExpect(status().isInternalServerError())
+  // .andExpect(content().string(containsString("An error occurred")));
+  // }
 
   @Test
   void retrieveDepartmentFoundTest() throws Exception {

@@ -27,7 +27,7 @@ Fixed to return HttpStatus.OK instead.
 return HttpStatus.OK instead.
 4. addMajorToDept method in Department.java was calling the incorrectly named addPersonToMajor. 
 Updated to call addMajorToDept after bug fix in Department.java
-5. dropPersonFromMajor method in Department.java was calling the incorrectly named addPersonToMajor. 
+5. dropPersonFromMajor method in Department.java was calling the incorrectly named dropPersonToMajor. 
 Updated to call dropMajorFromDept after bug fix in Department.java
 6. Static Analyzer name: LooseCoupling. In every instance where the courseMapping variable is
 declared and used, it directly used a HashMap instead of the Map interface. Updated to use a
