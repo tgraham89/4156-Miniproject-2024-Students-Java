@@ -1,0 +1,74 @@
+Please document any bugs you fix in a file called bugs.txt and include this in your repo. 
+In this txt you should indicate what the issue you fixed was, where it was, and if it has a 
+proper name identified by a static analyzer what that name was
+
+Bugs fixed in Course.java:
+1. getCourseLocation method was returning instructorName. Fixed to return courseLocation
+2. getInstructorName method was returning courseLocation. Fixed to return instructorName
+3. enrolledStudentCount was being initialized to 500 in the constructor. Fixed to initialize to 0.
+4. isCourseFull method was returning true when the enrollmentCapacity was greater than the
+enrolledStudentCount. Fixed to return true when the enrollmentCapacity is less than or equal to
+the enrolledStudentCount.
+5. Static Analyzer name: MissingOverride. toString method was missing override annotation. 
+Fixed to add @Override annotation.
+6. enrollStudent method was always returning false. Fixed to return true after the enrollment
+count has been incremented if the course can accomodate an additional student. Returns false
+otherwise, as is indicated in the comment.
+7. dropStudent method was always returning false. Fixed to return true after the enrollment
+count has been decremented if the course does not have an enrollment count of 0. Returns false
+otherwise, as is indicated in the comment.
+
+Bugs fixed in RouteController.java:
+1. retrieveDepartment method was returning HttpStatus.OK when a department was not found.
+Fixed to return HttpStatus.NOT_FOUND instead.
+2. retrieveDepartment method was returning HttpStatus.NOT_FOUND when a department was found.
+Fixed to return HttpStatus.OK instead.
+3. retrieveCourse method was returning HttpStatus.FORBIDDEN when a course was found. Fixed to
+return HttpStatus.OK instead.
+4. addMajorToDept method in Department.java was calling the incorrectly named addPersonToMajor. 
+Updated to call addMajorToDept after bug fix in Department.java
+5. dropPersonFromMajor method in Department.java was calling the incorrectly named dropPersonToMajor. 
+Updated to call dropMajorFromDept after bug fix in Department.java
+6. Static Analyzer name: LooseCoupling. In every instance where the courseMapping variable is
+declared and used, it directly used a HashMap instead of the Map interface. Updated to use a
+Map instead per the fix to getCourseSelection in Department.java.
+7. Static Analyzer name: LooseCoupling. In every instance where the departmentMapping variable is
+declared and used, it directly used a HashMap instead of the Map interface. Updated to use a
+Map instead.
+8. Static Analyzer name: UnnecessaryAnnotationValueElement. In every method with only 1 value,
+the 'value =' annotation is unnecessary. Updated to remove the 'value =' annotations in all
+of the applicable methods. 
+9. Static Analyser name: UseLocaleWithCaseConversions. toUpperCase method in retrieveDepartment
+method was not using a Locale. Updated to use English locale.
+10. Static Analyser name: UnusedLocalVariable. requestedCourse in findCourseTime method was unused. Fixed to return
+the course time slot to the caller as expected. 
+
+
+
+Bugs fixed in Department.java
+1. getDepartmentChair method was returning "this.departmentChair" as a string. Fixed to return
+the actual departmentChair value.
+2. addPersonToMajor method was incorrectly named as it adds a major to a department. Renamed to 
+be called addMajorToDept
+3. dropPersonFromMajor method was incorrectly named as it adds a major to a department. Renamed to 
+be called dropMajorFromDept
+4. Static Analyzer name: LooseCoupling. Department class was directly using the HashMap
+implementation instead of the Map interface. Updated the Department constructor use the Map interface.
+5. Static Analyzer name: LooseCoupling. getCourseSelection method was directly returning a HashMap
+rather than using an interface. Fixed to return a Map instead.
+6. Static Analyzer name: MissingOverride. toString method was missing override annotation. 
+Fixed to add @Override annotation.
+7. Static Analyzer name: LooseCoupling. courses variable was a HashMap rather than using the Map
+interface. Fixed to be a Map instead.
+
+Bugs fixed in IndividualProjectApplication.java
+1. Static Analyzer name: LooseCoupling. courses variable was a HashMap rather than using the Map
+interface. Fixed to be a Map instead.
+2. Static Analyzer name: LiteralsFirstInComparisons. Switched arg.equals("setup") to 
+"setup".equals(arg) since literals should come first in comparisons. 
+
+Bugs fixed in MyFileDatabase.java
+1. Static Analyzer name: LooseCoupling. All functions in this class  were using a HashMap rather 
+than using the Map interface. Fixed to be a Map instead.
+2. Static Analyzer name: ReturnEmptyCollectionRatherThanNull. The deSerializeObjectFromFile method
+was returning null in case of an error. Fixed to return an empty Map instead. 

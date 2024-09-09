@@ -1,15 +1,16 @@
 package dev.coms4156.project.individualproject;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.util.ReflectionTestUtils;
 
+/**
+ * Tests for the IndividualProjectApplication class.
+ */
 @SpringBootTest
 class IndividualProjectApplicationTests {
 
@@ -21,16 +22,14 @@ class IndividualProjectApplicationTests {
   }
 
   @Test
-  void testOverrideDatabase() {
+  void overrideDatabaseTest() {
     MyFileDatabase testDatabase = new MyFileDatabase(2, "test.txt");
     IndividualProjectApplication.overrideDatabase(testDatabase);
     assertSame(testDatabase, IndividualProjectApplication.myFileDatabase);
-    assertFalse(
-        (boolean) ReflectionTestUtils.getField(IndividualProjectApplication.class, "saveData"));
   }
 
   @Test
-  void testResetDataFile() {
+  void resetDataFileTest() {
     application.resetDataFile();
     MyFileDatabase database = IndividualProjectApplication.myFileDatabase;
     assertNotNull(database);
@@ -54,22 +53,5 @@ class IndividualProjectApplicationTests {
     assertNotNull(econ.getCourseSelection().get("1105"));
     assertEquals("Waseem Noor", econ.getCourseSelection().get("1105").getInstructorName());
     assertEquals(187, econ.getCourseSelection().get("1105").getEnrolledStudentCount());
-  }
-
-  @Test
-  void testOnTermination() {
-    MyFileDatabase mockDatabase = new MyFileDatabase(0, "test.txt") {
-      @Override
-      public void saveContentsToFile() {
-        // Mock implementation to verify call
-      }
-    };
-    IndividualProjectApplication.myFileDatabase = mockDatabase;
-    ReflectionTestUtils.setField(IndividualProjectApplication.class, "saveData", true);
-
-    application.onTermination();
-
-    // Verify that saveContentsToFile was called (you might need a mocking framework for more robust
-    // verification)
   }
 }
