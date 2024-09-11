@@ -30,7 +30,7 @@ public class DepartmentUnitTest {
 
   @Test
   void getNumberOfMajorsTest() {
-    assertEquals(-100, department.getNumberOfMajors());
+    assertEquals(100, department.getNumberOfMajors());
   }
 
   @Test
@@ -46,13 +46,13 @@ public class DepartmentUnitTest {
   @Test
   void addMajorToDeptTest() {
     department.addMajorToDept();
-    assertEquals(-101, department.getNumberOfMajors());
+    assertEquals(101, department.getNumberOfMajors());
   }
 
   @Test
   void dropMajorFromDeptTest() {
     department.dropMajorFromDept();
-    assertEquals(-99, department.getNumberOfMajors());
+    assertEquals(99, department.getNumberOfMajors());
   }
 
   @Test
