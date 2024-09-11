@@ -76,6 +76,8 @@ public class DepartmentUnitTest {
 
   @Test
   void toStringTest() {
-    assertEquals("result.toString()", department.toString());
+    assertEquals(
+        "CS COMS4156: " + "\nInstructor: Gail Kaiser; Location: Room 101; Time: MWF 9:00-10:30\n",
+        department.toString());
   }
 }

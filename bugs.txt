@@ -43,8 +43,6 @@ method was not using a Locale. Updated to use English locale.
 10. Static Analyser name: UnusedLocalVariable. requestedCourse in findCourseTime method was unused. Fixed to return
 the course time slot to the caller as expected. 
 
-
-
 Bugs fixed in Department.java
 1. getDepartmentChair method was returning "this.departmentChair" as a string. Fixed to return
 the actual departmentChair value.
@@ -62,6 +60,8 @@ Fixed to add @Override annotation.
 interface. Fixed to be a Map instead.
 8. dropMajorFromDept was not checking whether the number of majors was greater than 0 prior to 
 decrementing. Fixed to check. 
+9. toString method was returning "result.toString()". Removed the quotations so that it returns
+the correct result in string format. 
 
 Bugs fixed in IndividualProjectApplication.java
 1. Static Analyzer name: LooseCoupling. courses variable was a HashMap rather than using the Map
