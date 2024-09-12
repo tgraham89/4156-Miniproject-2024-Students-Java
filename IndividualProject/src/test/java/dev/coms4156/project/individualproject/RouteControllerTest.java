@@ -91,7 +91,7 @@ public class RouteControllerTest {
   }
 
   @Test
-  void gtMajorCountFromDeptTest() throws Exception {
+  void getMajorCtFromDeptTest() throws Exception {
     mockMvc.perform(get("/getMajorCountFromDept").param("deptCode", "COMS"))
         .andExpect(status().isOk())
         .andExpect(content().string(containsString("There are: 2700 majors in the department")));

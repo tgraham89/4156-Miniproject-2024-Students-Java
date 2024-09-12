@@ -1,9 +1,9 @@
 -
 Testing RouteController:
 --
-General resource I used to learn how to test using MockMvc
+General resources I used to learn how to test using MockMvc and MockBean
 https://docs.spring.io/spring-framework/reference/testing/spring-mvc-test-framework.html
-
+https://www.baeldung.com/java-spring-mockito-mock-mockbean
 -
 PMD Errors:
 --

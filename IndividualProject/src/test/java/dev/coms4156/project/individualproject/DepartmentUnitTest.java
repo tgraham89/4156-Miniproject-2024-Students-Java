@@ -30,7 +30,7 @@ public class DepartmentUnitTest {
 
   @Test
   void getNumberOfMajorsTest() {
-    assertEquals(-100, department.getNumberOfMajors());
+    assertEquals(100, department.getNumberOfMajors());
   }
 
   @Test
@@ -46,13 +46,13 @@ public class DepartmentUnitTest {
   @Test
   void addMajorToDeptTest() {
     department.addMajorToDept();
-    assertEquals(-101, department.getNumberOfMajors());
+    assertEquals(101, department.getNumberOfMajors());
   }
 
   @Test
   void dropMajorFromDeptTest() {
     department.dropMajorFromDept();
-    assertEquals(-99, department.getNumberOfMajors());
+    assertEquals(99, department.getNumberOfMajors());
   }
 
   @Test
@@ -76,6 +76,8 @@ public class DepartmentUnitTest {
 
   @Test
   void toStringTest() {
-    assertEquals("result.toString()", department.toString());
+    assertEquals(
+        "CS COMS4156: " + "\nInstructor: Gail Kaiser; Location: Room 101; Time: MWF 9:00-10:30\n",
+        department.toString());
   }
 }
