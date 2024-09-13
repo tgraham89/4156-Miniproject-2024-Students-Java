@@ -17,7 +17,7 @@ class IndividualProjectApplicationTests {
   private IndividualProjectApplication application;
 
   @BeforeEach
-  void setUp() {
+  void setup() {
     application = new IndividualProjectApplication();
   }
 
