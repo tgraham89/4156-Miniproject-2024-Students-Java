@@ -1,7 +1,7 @@
 package dev.coms4156.project.individualproject;
 
-import java.util.Locale;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -524,6 +524,15 @@ public class RouteController {
     }
   }
 
+  /**
+   * Endpoint for retrieving all courses associated with a course code. This method handles GET
+   * requests to retrieve all courses identified by course code. If the course exists in any
+   * department, it is returned. If it is not found in any department, the method returns not found.
+   * 
+   * @param courseCode A {@code int} representing a course within a department.
+   * @return a ResponseEntity with a summary of the courses found if they exist, or an error message
+   *         if a course is not found
+   */
   @GetMapping(value = "/retrieveCourses", produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<?> retrieveCourses(@RequestParam("courseCode") int courseCode) {
     try {
