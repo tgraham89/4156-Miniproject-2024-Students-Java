@@ -174,4 +174,49 @@ public class RouteControllerTest {
         .andExpect(status().isOk())
         .andExpect(content().string("Attributed was updated successfully."));
   }
+
+  @Test
+  void testRetrieveCoursesOneCourse() throws Exception {
+    mockMvc.perform(get("/retrieveCourses").param("courseCode", "4156")).andExpect(status().isOk())
+        .andExpect(content()
+            .string("Found courses matching course code 4156:\n" + "In the COMS department: \n"
+                + "Instructor: Gail Kaiser; Location: 501 NWC; Time: 10:10-11:25"));
+  }
+
+  @Test
+  void testRetrieveCoursesManyCourses() throws Exception {
+    Map<String, Department> mapping = myFileDatabase.getDepartmentMapping();
+
+    Department department = mapping.get("COMS");
+    Course newCourse = new Course("Tony Dear", "402 CHANDLER", "1:10-3:40", 125);
+    department.addCourse("4567", newCourse);
+    mapping.put("COMS", department);
+
+    department = mapping.get("PHYS");
+    newCourse = new Course("Yury Levin", "329 PUP", "10:10-12:00", 60);
+    department.addCourse("4567", newCourse);
+    mapping.put("PHYS", department);
+
+    department = mapping.get("ECON");
+    newCourse = new Course("Matthieu Gomez", "517 HAM", "8:40-9:55", 86);
+    department.addCourse("4567", newCourse);
+    mapping.put("ECON", department);
+
+    myFileDatabase.setMapping(mapping);
+
+    mockMvc.perform(get("/retrieveCourses").param("courseCode", "4567")).andExpect(status().isOk())
+        .andExpect(content()
+            .string("Found courses matching course code 4567:" + "\nIn the PHYS department: "
+                + "\nInstructor: Yury Levin; Location: 329 PUP; Time: 10:10-12:00"
+                + "\nIn the COMS department: "
+                + "\nInstructor: Tony Dear; Location: 402 CHANDLER; Time: 1:10-3:40"
+                + "\nIn the ECON department: "
+                + "\nInstructor: Matthieu Gomez; Location: 517 HAM; Time: 8:40-9:55"));
+  }
+
+  @Test
+  void testRetrieveCoursesNoCourses() throws Exception {
+    mockMvc.perform(get("/retrieveCourses").param("courseCode", "0000"))
+        .andExpect(status().isNotFound()).andExpect(content().string("No courses were found"));
+  }
 }

@@ -1,6 +1,7 @@
 package dev.coms4156.project.individualproject;
 
 import java.util.Locale;
+import java.util.HashMap;
 import java.util.Map;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -523,8 +524,38 @@ public class RouteController {
     }
   }
 
+  @GetMapping(value = "/retrieveCourses", produces = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseEntity<?> retrieveCourses(@RequestParam("courseCode") int courseCode) {
+    try {
+      String response = "";
+      Map<String, Course> foundCourses = new HashMap<>();
+      Map<String, Department> departmentMapping;
+      departmentMapping = IndividualProjectApplication.myFileDatabase.getDepartmentMapping();
+      for (String deptCode : departmentMapping.keySet()) {
+        Map<String, Course> courses = departmentMapping.get(deptCode).getCourseSelection();
+        if (courses.containsKey(Integer.toString(courseCode))) {
+          foundCourses.put(deptCode, courses.get(Integer.toString(courseCode)));
+        }
+      }
+
+      if (!foundCourses.isEmpty()) {
+        for (String deptCode : foundCourses.keySet()) {
+          response = response + "\nIn the " + deptCode + " department: "
+              + foundCourses.get(deptCode).toString();
+        }
+        return new ResponseEntity<>(
+            "Found courses matching course code " + courseCode + ":" + response, HttpStatus.OK);
+      } else {
+        return new ResponseEntity<>("No courses were found", HttpStatus.NOT_FOUND);
+      }
+    } catch (Exception e) {
+      return handleException(e);
+    }
+  }
+
   private ResponseEntity<?> handleException(Exception e) {
     System.out.println(e.toString());
+    // TODO: REMEMBER TO FIX THIS ONLY FOR ASSIGNMENT 1
     return new ResponseEntity<>("An Error has occurred", HttpStatus.OK);
   }
 
