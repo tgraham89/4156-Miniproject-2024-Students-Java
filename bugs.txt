@@ -43,6 +43,8 @@ method was not using a Locale. Updated to use English locale.
 10. Static Analyser name: UnusedLocalVariable. requestedCourse in findCourseTime method was unused. Fixed to return
 the course time slot to the caller as expected. 
 11. getMajorCtFromDept was returning a negative major count. Fixed to include the positive number. 
+12. The handleException method was returning an Ok status. Fixed to return INTERNAL_SERVER_ERROR
+if an error occurs, as that is more appropriate.
 
 Bugs fixed in Department.java
 1. getDepartmentChair method was returning "this.departmentChair" as a string. Fixed to return

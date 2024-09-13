@@ -55,13 +55,6 @@ public class RouteControllerTest {
         .andExpect(content().string("Department Not Found"));
   }
 
-  // @Test
-  // void retrieveDepartmentExceptionTest() throws Exception {
-  // mockMvc.perform(get("/retrieveDept").param("deptCode", "INVALID"))
-  // .andExpect(status().isInternalServerError())
-  // .andExpect(content().string(containsString("An error occurred")));
-  // }
-
   @Test
   void retrieveDepartmentFoundTest() throws Exception {
     Map<String, Department> mapping = myFileDatabase.getDepartmentMapping();
